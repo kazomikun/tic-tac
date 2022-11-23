@@ -120,3 +120,58 @@ img {
 #opacityD, #result {
   /* display: none; */
 }
+
+#opacityD {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 10;
+}
+
+#result {
+  z-index: 10;
+  position: fixed;
+  width: 500px;
+  height: 320px;
+  /* padding: 2px; */
+  border: 2px solid #511519;
+  border-radius: 7px;
+}
+
+#popBody {
+  background-color: white;
+  height: 250px;
+  border-style: solid;
+  border-width: 2px 2px 0px 2px;
+  border-color: #511519;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px
+}
+
+#imgDiv {
+  position: relative;
+  top: 10px;
+  width: 100px;
+  height: 107px;
+  margin: 20px auto;
+}
+
+#imgDiv img {
+  width: 100px;
+  height: 107px;
+}
+
+#h1Res {
+  margin: 0px  12px 12px 12px;
+  font-family: cursive;
+  color: #4d0000;
+}
+
+#pRes {
+  color: #4d0000;
+  font-size: 20px;
+}
