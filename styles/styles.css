@@ -83,13 +83,6 @@ html {
   cursor: pointer;
 }
 
-.back {
-  position: absolute;
-  width: 150px;
-  height: 125px;
-  padding: 5px;
-}
-
 .front {
   position: absolute;
   width: 150px;
@@ -99,13 +92,31 @@ html {
   padding: 0px 5px 50px 35px;
   margin: 0;
   text-shadow: 4px 3px 7px rgba(94,119,115,0.82);
+  transform: rotateY(0deg);
+  transition: transform 0.5s linear 0s;
+  backface-visibility: hidden;
 }
+
+.back {
+  position: absolute;
+  width: 150px;
+  height: 125px;
+  padding: 5px;
+  transform: rotateY(180deg);
+  transition: transform 0.5s linear 0s;
+  backface-visibility: hidden;
+}
+
 
 img {
   width: 150px;
   height: 105px;
 }
 
-#opacityD, #result {
+#head, #updates, #game {
   display: none;
+}
+
+#opacityD, #result {
+  /* display: none; */
 }
