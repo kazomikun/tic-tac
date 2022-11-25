@@ -27,10 +27,21 @@ let seconds = secsInput;
 let gameOver = false
 
 // // 2. Make the flipping work
-console.log(memory);
+memory.addEventListener("click", function(e) {
+  console.log(e);
+  var el = e.target.parentElement
+  console.log(el);
+  var numId = el.id
+  console.log(numId);
+  if(Number.isInteger(parseInt(numId.replace("back",""),10))) {
+    cardClick(el.parentElement.id)
+  } else {
+    cardClick(el.id)
+  }
+})
+
 // // 3. Basic game - no randomisation, no time just flipping
 // // 4. Make new game button work
 // // 5. Randomise the game boxes on loading - also create image.js file here
 // // 6. Create the timer
 // // 7. Make the fancy display for results
-console.log("Hello");
