@@ -114,11 +114,10 @@ img {
 }
 
 #head, #updates, #game {
-  display: none;
 }
 
 #opacityD, #result {
-  /* display: none; */
+  display: none;
 }
 
 #opacityD {
@@ -174,4 +173,35 @@ img {
 #pRes {
   color: #4d0000;
   font-size: 20px;
+}
+
+#popOkay {
+  height: 100px;
+  background-color: #cf4a53;
+  padding: 25px;
+  border-style: solid;
+  border-width: 0px 2px 2px 2px;
+  border-color: #511519;
+  border-bottom-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+#okayButton {
+  height: 50px;
+  width: 95px;
+  margin: 0px auto;
+}
+
+#okayButton button {
+  height: 50px;
+  width: 95px;
+  font-size: 18px;
+  background-color: #4d0000;
+  color: white;
+  box-shadow: 0px 2px 2px 0.5px rgba(0,0,0,0.5);
+  border: none;
+  text-shadow: 0px 2px 2px rgba(0,0,0,0.3);
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
 }
