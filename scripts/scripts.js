@@ -36,9 +36,23 @@ memory.addEventListener("click", function(e) {
   if(Number.isInteger(parseInt(numId.replace("back",""),10))) {
     cardClick(el.parentElement.id)
   } else {
-    cardClick(el.id)
+    cardClick(numId)
   }
 })
+
+function cardClick(cardId) {
+  cardNum = cardId.replace("card","")
+  cardNum = parseInt(cardNum,10)
+
+  //if game is over, record value of the card is 0
+  // see if card is checked
+
+  //flip the card
+  front = document.getElementById("front" + cardNum)
+  back = document.getElementById("back" + cardNum)
+  front.style.transform = "rotateY(-180deg)"
+  back.style.transform = "rotateY(0deg)"
+}
 
 // // 3. Basic game - no randomisation, no time just flipping
 // // 4. Make new game button work
