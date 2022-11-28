@@ -28,11 +28,11 @@ let gameOver = false
 
 // // 2. Make the flipping work
 memory.addEventListener("click", function(e) {
-  console.log(e);
+  //console.log(e);
   var el = e.target.parentElement
-  console.log(el);
+  // console.log(el);
   var numId = el.id
-  console.log(numId);
+  // console.log(numId);
   if(Number.isInteger(parseInt(numId.replace("back",""),10))) {
     cardClick(el.parentElement.id)
   } else {
@@ -46,15 +46,25 @@ function cardClick(cardId) {
 
   //if game is over, record value of the card is 0
   // see if card is checked
+  if (record[cardNum-1]==0 && cardChk == 0 && gameOver == false) {
+    //flip the card
+    front = document.getElementById("front" + cardNum)
+    back = document.getElementById("back" + cardNum)
+    front.style.transform = "rotateY(-180deg)"
+    back.style.transform = "rotateY(0deg)"
 
-  //flip the card
-  front = document.getElementById("front" + cardNum)
-  back = document.getElementById("back" + cardNum)
-  front.style.transform = "rotateY(-180deg)"
-  back.style.transform = "rotateY(0deg)"
+
+    // // 3. Basic game - no randomisation, no time just flipping
+    cardTextRec.push(back.innerHTML)
+    cardRec.push(cardNum)
+    console.log(cardTextRec);
+    console.log(cardRec);
+  }
+
+
+
 }
 
-// // 3. Basic game - no randomisation, no time just flipping
 // // 4. Make new game button work
 // // 5. Randomise the game boxes on loading - also create image.js file here
 // // 6. Create the timer
