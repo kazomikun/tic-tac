@@ -59,12 +59,40 @@ function cardClick(cardId) {
     cardRec.push(cardNum)
     console.log(cardTextRec);
     console.log(cardRec);
+    flipIndex++
+    record[cardNum-1] = 1
+
+    if (flipIndex == 2) {
+        //compare the cards to see if they are the same
+        if (cardTextRec[0] == cardTextRec[1]) {
+          correct++
+          scoreEl.innerHTML = "Score: " + correct
+          cardRec = []
+          cardTextRec = []
+          flipIndex = 0
+
+          if (correct == 10) {
+            //display result and stop game
+            setTimeout(displayResult(),600)
+
+          }
+          return
+        } else { // flip the cards back if not equal
+          cardChk = 1
+          setTimeout(flipBack(),600)
+          return
+        }
+    }
   }
 
-
-
+  if(gameOver == true) {
+    alert("Game is over, click New Game to start another game")
+  }
 }
 
+function displayResult() {
+
+}
 // // 4. Make new game button work
 // // 5. Randomise the game boxes on loading - also create image.js file here
 // // 6. Create the timer
