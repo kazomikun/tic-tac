@@ -91,6 +91,15 @@ function cardClick(cardId) {
 }
 
 function displayResult() {
+  gameOver = true
+  if (correct == 10) {
+    alert("Congratulations! You've won the game. Your score is " +correct)
+  } else {
+    alert ("Game over! your final score is "+correct)
+  }
+}
+
+function flipBack() {
 
 }
 // // 4. Make new game button work
