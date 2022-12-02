@@ -1,13 +1,13 @@
 // // 1. Create and assign variables & retrieve  the necessary HTML elements
-let record = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var record = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var imgRec = [];
 var rand;
 var flipIndex = 0;
 var cardTextRec = [];
 var cardRec = [];
-let cardNum;
-let back;
-let front;
+var cardNum;
+var back;
+var front;
 var cardChk = 0;
 var correct = 0;
 
@@ -57,14 +57,16 @@ function cardClick(cardId) {
     // // 3. Basic game - no randomisation, no time just flipping
     cardTextRec.push(back.innerHTML)
     cardRec.push(cardNum)
-    console.log(cardTextRec);
-    console.log(cardRec);
+
     flipIndex++
     record[cardNum-1] = 1
 
     if (flipIndex == 2) {
+      console.log("1. "+cardChk);
         //compare the cards to see if they are the same
         if (cardTextRec[0] == cardTextRec[1]) {
+          console.log("2. "+cardChk);
+
           correct++
           scoreEl.innerHTML = "Score: " + correct
           cardRec = []
@@ -78,8 +80,10 @@ function cardClick(cardId) {
           }
           return
         } else { // flip the cards back if not equal
+          console.log("3. "+cardChk);
+
           cardChk = 1
-          setTimeout(flipBack(),600)
+          setTimeout(flipBack(),6000)
           return
         }
     }
@@ -100,7 +104,22 @@ function displayResult() {
 }
 
 function flipBack() {
+  // front = document.getElementById("front"+cardRec[0])
+  // back = document.getElementById("back"+cardRec[0])
+  // front.style.transform = "rotateY(0deg)"
+  // back.style.transform = "rotateY(180deg)"
 
+  front = document.getElementById("front"+cardRec[1])
+  back = document.getElementById("back"+cardRec[1])
+  front.style.transform = "rotateY(0deg)"
+  back.style.transform = "rotateY(-180deg)"
+
+  // record[cardRec[0]-1] = 0
+  // record[cardRec[1]-1] = 0
+  // cardTextRec = []
+  // cardRec = []
+  // flipIndex = 0
+  // cardChk = 0
 }
 // // 4. Make new game button work
 // // 5. Randomise the game boxes on loading - also create image.js file here
