@@ -75,7 +75,7 @@ function cardClick(cardId) {
 
           if (correct == 10) {
             //display result and stop game
-            setTimeout(displayResult(),600)
+            setTimeout(function(){displayResult()},600)
 
           }
           return
@@ -83,7 +83,7 @@ function cardClick(cardId) {
           console.log("3. "+cardChk);
 
           cardChk = 1
-          setTimeout(flipBack(),6000)
+          setTimeout(function(){flipBack()},600)
           return
         }
     }
@@ -104,22 +104,22 @@ function displayResult() {
 }
 
 function flipBack() {
-  // front = document.getElementById("front"+cardRec[0])
-  // back = document.getElementById("back"+cardRec[0])
-  // front.style.transform = "rotateY(0deg)"
-  // back.style.transform = "rotateY(180deg)"
+  front = document.getElementById("front"+cardRec[0])
+  back = document.getElementById("back"+cardRec[0])
+  front.style.transform = "rotateY(0deg)"
+  back.style.transform = "rotateY(180deg)"
 
   front = document.getElementById("front"+cardRec[1])
   back = document.getElementById("back"+cardRec[1])
   front.style.transform = "rotateY(0deg)"
   back.style.transform = "rotateY(-180deg)"
 
-  // record[cardRec[0]-1] = 0
-  // record[cardRec[1]-1] = 0
-  // cardTextRec = []
-  // cardRec = []
-  // flipIndex = 0
-  // cardChk = 0
+  record[cardRec[0]-1] = 0
+  record[cardRec[1]-1] = 0
+  cardTextRec = []
+  cardRec = []
+  flipIndex = 0
+  cardChk = 0
 }
 // // 4. Make new game button work
 // // 5. Randomise the game boxes on loading - also create image.js file here
