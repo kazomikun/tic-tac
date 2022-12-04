@@ -122,6 +122,12 @@ function flipBack() {
   cardChk = 0
 }
 // // 4. Make new game button work
+newGame = document.getElementById("new")
+newGame.addEventListener("click",newClick)
+
+function newClick() {
+  window.location.reload()
+}
 // // 5. Randomise the game boxes on loading - also create image.js file here
 // // 6. Create the timer
 // // 7. Make the fancy display for results
