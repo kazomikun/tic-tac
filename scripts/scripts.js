@@ -76,7 +76,7 @@ function cardClick(cardId) {
           if (correct == 10) {
             //display result and stop game
             setTimeout(function(){displayResult()},600)
-
+            clearTimeout(countDown)
           }
           return
         } else { // flip the cards back if not equal
@@ -129,5 +129,50 @@ function newClick() {
   window.location.reload()
 }
 // // 5. Randomise the game boxes on loading - also create image.js file here
+function newBoard() {
+  for(var i=0; i<20; i++) {
+    if(i==0) {
+      var rand = Math.round(Math.random() * images.length)
+      while(rand == images.length) {
+        rand = Math.round(Math.random() * images.length)
+      }
+      imgRec[i] = rand
+    } else {
+        while(status == 0) {
+          rand = Math.round(Math.random() * images.length)
+          if (rand !== images.length) {
+            for(var j=0; j<imgRec.length; j++) {
+              if(rand == imgRec[j]) {
+                break
+              } else if (j == imgRec.length -1) {
+                status = 1
+                imgRec[i] = rand
+              }
+            }
+          }
+        }
+    }
+    status = 0
+    console.log("random " + images[rand]);
+    document.getElementById("back"+(i+1)).innerHTML = images[rand]
+  }
+  startTimer(seconds)
+}
+
 // // 6. Create the timer
+function startTimer(secs) {
+  timer.innerHTML = "00:"+secs
+
+  if (secs == 0) {
+    clearTimeout(countDown)
+    displayResult()
+    timer.innerHTML = "00:00"
+    return
+  }
+  secs--
+
+  countDown = setTimeout(function(){startTimer(secs)},1000)
+}
 // // 7. Make the fancy display for results
+
+window.onload = newBoard()
