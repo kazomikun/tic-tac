@@ -94,15 +94,6 @@ function cardClick(cardId) {
   }
 }
 
-function displayResult() {
-  gameOver = true
-  if (correct == 10) {
-    alert("Congratulations! You've won the game. Your score is " +correct)
-  } else {
-    alert ("Game over! your final score is "+correct)
-  }
-}
-
 function flipBack() {
   front = document.getElementById("front"+cardRec[0])
   back = document.getElementById("back"+cardRec[0])
@@ -173,6 +164,30 @@ function startTimer(secs) {
 
   countDown = setTimeout(function(){startTimer(secs)},1000)
 }
-// // 7. Make the fancy display for results
+// 7. Make the fancy display for results
+function displayResult() {
+  gameOver = true
+
+  var width = window.innerWidth
+  opacityD.style.display = "block"
+  result.style.display = "block"
+  result.style.left = (width/2) - (500/2) + "px"
+  result.style.top = 150 + "px"
+
+  if (correct == 10) {
+    h1Res.innerHTML = "Congratulations You've won!"
+  } else {
+    h1Res.innerHTML = "Try again!"
+  }
+  pRes.innerHTML = "You've scored " + correct
+}
+
+var okayButton = document.getElementById("okayButton")
+okayButton.addEventListener("click",okayClick)
+
+function okayClick() {
+  opacityD.style.display = "none"
+  result.style.display = "none"
+}
 
 window.onload = newBoard()
